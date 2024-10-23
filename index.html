@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Ingreso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulario de Ingreso de Datos</h2>
+
+    <form id="datosForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+
+        <label for="carnet">Carnet:</label>
+        <input type="text" id="carnet" name="carnet" required>
+
+        <label for="curso">Curso:</label>
+        <input type="text" id="curso" name="curso" required>
+
+        <label for="nota">Nota:</label>
+        <input type="number" id="nota" name="nota" required min="0" max="100">
+
+        <button type="button" onclick="guardarDatos()">Guardar Información</button>
+    </form>
+
+    <script>
+        function guardarDatos() {
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const carnet = document.getElementById('carnet').value;
+            const curso = document.getElementById('curso').value;
+            const nota = document.getElementById('nota').value;
+
+            if (nombre && apellido && carnet && curso && nota) {
+                alert('Datos guardados:\n' +
+                    'Nombre: ' + nombre + '\n' +
+                    'Apellido: ' + apellido + '\n' +
+                    'Carnet: ' + carnet + '\n' +
+                    'Curso: ' + curso + '\n' +
+                    'Nota: ' + nota);
+            } else {
+                alert('Por favor, complete todos los campos.');
+            }
+        }
+    </script>
+
+</body>
+</html>
